@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>HyLauncher - Free Offline Hytale Launcher | Download Hytale Launcher for Windows (No Account Needed)</title>
+    <title>HyLauncher - Free Hytale Launcher | Download Hytale Offline Launcher for Windows (No Account Needed)</title>
     <meta name="description" content="HyLauncher is the best free offline launcher for Hytale. Play Hytale without an account or internet connection. Lightweight, fast, and simple Windows launcher with offline mode. Download now!">
     <meta name="keywords" content="hytale launcher, free hytale launcher, offline hytale launcher, hytale offline, hytale launcher download, hytale no account, hytale windows launcher, hytale tlauncher, hytale cracked launcher, hytale play offline, hytale launcher 2026, hytale crack, hytale pirate, hytale pirata, baixar hytale gratis, hytale launcher pirata">
     <meta name="robots" content="index, follow">
@@ -154,7 +154,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-image: url('https://i.redd.it/8yq8roel0lg51.png');
+            background-image: url('img/bg.jpg');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -449,7 +449,7 @@
     <section class="hero">
         <div class="container hero-content">
             <img src="img/logo.png" alt="HyLauncher Logo - Free Offline Hytale Launcher" class="hero-logo">
-            <p>Free offline Hytale launcher — play anytime, without an account.</p>
+            <p>Free Hytale launcher — play anytime, without an account.</p>
             <div class="hero-buttons">
                 <a href="#download" class="btn btn-primary">Download Free for <i class="fab fa-windows" aria-hidden="true"></i> Windows </a>
                 <a href="https://l.hylauncher.net/discord" target="_blank" class="btn btn-secondary" disabled="true">Join <i class="fab fa-discord" aria-hidden="true"></i> Discord</a>
@@ -464,7 +464,7 @@
                 <div class="feature-card">
                     <i class="fa-solid fa-power-off feature-icon" aria-hidden="true"></i>
                     <h3>Fully Offline Mode</h3>
-                    <p>No account or internet connection required — launch and play Hytale instantly offline.</p>
+                    <p>No account or internet connection required — launch, install and play Hytale instantly.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-bolt feature-icon" aria-hidden="true"></i>
@@ -488,14 +488,14 @@
                     <img src="img/showcase1.jpg" alt="HyLauncher main interface - clean offline Hytale launcher">
                     <div class="screenshot-caption">
                         <h3>Main Interface</h3>
-                        <p>Clean and intuitive offline Hytale launcher interface</p>
+                        <p>Clean and intuitive launcher interface</p>
                     </div>
                 </div>
                 <div class="screenshot-card">
                     <img src="img/showcase2.jpg" alt="HyLauncher game installation screen - offline Hytale setup">
                     <div class="screenshot-caption">
                         <h3>Game Installation</h3>
-                        <p>Offline game install and updates provided by the community</p>
+                        <p>Online game install and updates</p>
                     </div>
                 </div>
             </div>
@@ -504,13 +504,12 @@
 
     <section class="download" id="download">
         <div class="container">
-            <h2 class="section-title">Download HyLauncher Free</h2>
-            <p>Free offline Hytale launcher for Windows. No account needed.</p>
+            <h2 class="section-title">Download HyLauncher</h2>
+            <p>Free Hytale launcher for Windows. No account needed.</p>
             <a href="https://l.hylauncher.net/download" target="_blank" class="download-btn-large">
                 <i class="fab fa-windows" aria-hidden="true"></i>
                 Free Download for Windows
             </a><br><br><br>
-            <p>You need the game files, which we don't provide with the launcher.</p>
             <a href="https://l.hylauncher.net/discord" target="_blank" class="btn btn-secondary">
                 <i class="fab fa-discord" aria-hidden="true"></i>
                 Join our community
@@ -521,15 +520,14 @@
     <section class="about">
         <div class="container">
             <h2 class="section-title">About HyLauncher</h2>
-            <p>HyLauncher is a community-developed free offline launcher for Hytale on Windows. It provides the familiar launcher experience without requiring an online account or internet connection. Ideal for offline play, testing mods, or quick launches when the official servers are unavailable.</p>
-            <p>HyLauncher is not affiliated with Hypixel Studios and is an independent project.</p>
+            <p>HyLauncher is a community-developed free launcher for Hytale on Windows. It provides the familiar launcher experience without requiring an online account or internet connection. Ideal for offline play, testing mods, or quick launches when the official servers are unavailable.</p>
         </div>
     </section>
 
     <footer>
         <div class="container">
             © 2026 HyLauncher. All rights reserved.<br>
-            <a href="#" target="_blank">Discord</a>
+            <a href="https://l.hylauncher.net/discord" target="_blank">Discord</a>
             <span class="separator">•</span>
             <a href="#" target="_blank">Disclaimer</a>
             <span class="separator">•</span>
@@ -540,5 +538,26 @@
     </footer>
 
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            const targetId = this.getAttribute("href");
 
+            // Ignora apenas "#" sem destino
+            if (targetId === "#") return;
+
+            const target = document.querySelector(targetId);
+            if (!target) return;
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
+    });
+});
+</script>
 </html>
