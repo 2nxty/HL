@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer - HyLauncher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-deep: #0a0a12;
+            --bg-surface: #12121d;
+            --accent-primary: #5b8cff;
+            --accent-glow: #4272f5;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1b5;
+            --text-muted: #6b6b7f;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-glow: rgba(91, 140, 255, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .ambient-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .gradient-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.12;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #4272f5, transparent);
+            top: -200px;
+            right: -100px;
+        }
+
+        .blob-2 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #2d5fd9, transparent);
+            bottom: -150px;
+            left: -100px;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .logo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .logo-link i {
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+        }
+
+        .logo-link:hover {
+            color: var(--accent-primary);
+            transform: translateX(-5px);
+        }
+
+        main {
+            padding: 5rem 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #b8c5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .last-updated {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 3rem;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.25rem;
+        }
+
+        ul, ol {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-left: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+
+        a:hover {
+            color: #7aa3ff;
+        }
+
+        .highlight-box {
+            background: rgba(91, 140, 255, 0.05);
+            border-left: 3px solid var(--accent-primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: var(--accent-primary);
+            font-weight: 500;
+        }
+
+        footer .separator {
+            margin: 0 0.8rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.25rem; }
+            h2 { font-size: 1.5rem; }
+            main { padding: 3rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <a href="index.html" class="logo-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to HyLauncher
+            </a>
+        </header>
+
+        <main>
+            <h1>Disclaimer</h1>
+            <p class="last-updated">Last Updated: January 18, 2026</p>
+
+            <div class="content-section">
+                <h2>1. General Information</h2>
+                <p>HyLauncher is an unofficial, community-developed launcher for Hytale. This software is provided "as is" without warranty of any kind, either expressed or implied.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>2. No Official Affiliation</h2>
+                <div class="highlight-box">
+                    <p><strong>Important:</strong> HyLauncher is not affiliated with, endorsed by, or connected to Hypixel Studios in any way. This is an independent community project.</p>
+                </div>
+                <p>Hypixel Studios does not support, maintain, or approve this launcher. Any issues, questions, or concerns about HyLauncher should be directed to our community, not to Hypixel Studios.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>3. Use at Your Own Risk</h2>
+                <p>By downloading and using HyLauncher, you acknowledge and agree that:</p>
+                <ul>
+                    <li>You use this software entirely at your own risk</li>
+                    <li>The developers are not responsible for any damage to your computer, loss of data, or any other harm</li>
+                    <li>You understand this is unofficial software not supported by Hypixel Studios</li>
+                    <li>Your use of this launcher may violate Hytale's Terms of Service</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>4. No Warranty</h2>
+                <p>HyLauncher is provided without any guarantees or warranty. The developers make no warranties regarding:</p>
+                <ul>
+                    <li>Functionality or performance</li>
+                    <li>Compatibility with your system</li>
+                    <li>Security or safety of the software</li>
+                    <li>Continued availability or support</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>5. Intellectual Property</h2>
+                <p>Hytale, the Hytale logo, and all related trademarks are property of Hypixel Studios. HyLauncher respects these intellectual property rights and makes no claim to them.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>6. Account Security</h2>
+                <p>While HyLauncher is designed to work offline without an account, if you choose to use it with online features, you are responsible for maintaining the security of your device. We recommend using official launchers for account-based gameplay.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>7. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, the HyLauncher developers shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use or inability to use this software.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>8. Updates and Changes</h2>
+                <p>This disclaimer may be updated at any time without notice. Continued use of HyLauncher after changes constitutes acceptance of the updated disclaimer.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>9. Contact</h2>
+                <p>For questions or concerns about this disclaimer, please contact us through our <a href="https://l.hylauncher.net/discord" target="_blank">Discord community</a>.</p>
+            </div>
+        </main>
+
+        <footer>
+            © 2026 HyLauncher. All rights reserved.<br>
+            <a href="index.html">Home</a>
+            <span class="separator">•</span>
+            <a href="disclaimer.html">Disclaimer</a>
+            <span class="separator">•</span>
+            <a href="privacy.html">Privacy Policy</a>
+        </footer>
+    </div>
+</body>
+</html>

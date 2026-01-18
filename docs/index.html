@@ -7,6 +7,9 @@
     <title>HyLauncher - Free Hytale Launcher | Download Hytale Offline Launcher for Windows (No Account Needed)</title>
     <meta name="description" content="HyLauncher is the best free offline launcher for Hytale. Play Hytale without an account or internet connection. Lightweight, fast, and simple Windows launcher with offline mode. Download now!">
     <meta name="keywords" content="hytale launcher, free hytale launcher, offline hytale launcher, hytale offline, hytale launcher download, hytale no account, hytale windows launcher, hytale tlauncher, hytale cracked launcher, hytale play offline, hytale launcher 2026, hytale crack, hytale pirate, hytale pirata, baixar hytale gratis, hytale launcher pirata">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <meta name="robots" content="index, follow">
     <meta name="author" content="HyLauncher Team">
     <meta name="rating" content="general">
@@ -17,7 +20,7 @@
     <!-- Open Graph / Social Sharing -->
     <meta property="og:title" content="HyLauncher - Free Offline Hytale Launcher | Download for Windows">
     <meta property="og:description" content="Free offline Hytale launcher. Play Hytale without an account or internet. Fast, lightweight, and easy to use.">
-    <meta property="og:image" content="https://hylauncher.net/img/showcase2.jpg">
+    <meta property="og:image" content="https://hylauncher.net/img/showcase1.jpg">
     <meta property="og:url" content="https://hylauncher.net/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="HyLauncher">
@@ -27,14 +30,12 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="HyLauncher - Free Offline Hytale Launcher | Download for Windows">
     <meta name="twitter:description" content="Free offline Hytale launcher. Play Hytale without an account or internet.">
-    <meta name="twitter:image" content="https://hylauncher.net/img/showcase2.jpg">
+    <meta name="twitter:image" content="https://hylauncher.net/img/showcase1.jpg">
     <meta name="twitter:site" content="@hytalelauncher">
 
     <link rel="shortcut icon" href="img/licon.ico">
     <link rel="apple-touch-icon" href="img/favicon.png">
     <link rel="icon" type="image/png" href="img/favicon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script type="application/ld+json">
     {
@@ -124,28 +125,113 @@
 
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #11111a;
-            --accent: #4272f5;
-            --accent-hover: #5a85ff;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0cc;
-            --border: rgba(255, 255, 255, 0.08);
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            --bg-deep: #0a0a12;
+            --bg-deepd: #0a0a12c4;
+            --bg-surface: #12121d;
+            --bg-elevated: #1a1a28;
+            --accent-primary: #5b8cff;
+            --accent-glow: #4272f5;
+            --accent-bright: #7aa3ff;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1b5;
+            --text-muted: #6b6b7f;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-glow: rgba(91, 140, 255, 0.3);
+            --glass-bg: rgba(26, 26, 40, 0.4);
+            --spotlight-size: 600px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-deep);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        /* Ambient Gradient Blobs */
+        .ambient-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .gradient-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #4272f5, transparent);
+            top: -250px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #7b3ff2, transparent);
+            bottom: -200px;
+            right: -200px;
+            animation-delay: -7s;
+        }
+
+        .blob-3 {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, #2d5fd9, transparent);
+            top: 50%;
+            right: 10%;
+            animation-delay: -14s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 30px) scale(0.9); }
+        }
+
+        /* Mouse Tracking Spotlight */
+        .spotlight {
+            position: fixed;
+            width: var(--spotlight-size);
+            height: var(--spotlight-size);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(91, 140, 255, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        body:hover .spotlight {
+            opacity: 1;
+        }
+
+        .container { 
+            max-width: 1280px; 
+            margin: 0 auto; 
+            padding: 0 2rem; 
+            position: relative;
+            z-index: 2;
+        }
 
         .hero {
             min-height: 100vh;
@@ -154,6 +240,8 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            position: relative;
+            overflow: hidden;
             background-image: url('img/bg.jpg');
             background-size: cover;
             background-position: center;
@@ -164,177 +252,267 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(10, 10, 15, 0.75);
+            background: 
+                radial-gradient(ellipse at top, rgba(91, 140, 255, 0.1), transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(10, 10, 18, 0.9), var(--bg-deepd));
             pointer-events: none;
         }
 
-        .hero-content { position: relative; z-index: 1; }
+        .hero-content { 
+            position: relative; 
+            z-index: 3; 
+        }
 
         .hero-logo {
             max-width: 500px;
             width: 90%;
-            margin-bottom: 2.5rem;
-            filter: drop-shadow(0 0 30px rgba(66, 114, 245, 0.5));
+            margin-bottom: 3rem;
+            filter: drop-shadow(0 0 60px rgba(91, 140, 255, 0.6));
             opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #ffffff, #a0a0ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.2s forwards;
+            animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .hero p {
-            font-size: 1.6rem;
+            font-size: 1.75rem;
             max-width: 800px;
-            margin-bottom: 3.5rem;
+            margin-bottom: 4rem;
             color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: -0.02em;
             opacity: 0;
-            animation: fadeInUp 1s ease 0.3s forwards;
+            animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
         }
 
         .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
             opacity: 0;
-            animation: fadeInUp 1s ease 0.6s forwards;
+            animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes heroFadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
         }
 
         .btn {
-            display: inline-block;
-            padding: 1.2rem 3rem;
-            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2.75rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            border-radius: 0.5rem;
+            border-radius: 12px;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             overflow: hidden;
             border: 1px solid transparent;
+            letter-spacing: -0.01em;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .btn:hover::before {
+            opacity: 1;
         }
 
         .btn-primary {
-            background-color: var(--accent);
+            background: linear-gradient(135deg, var(--accent-glow), var(--accent-primary));
             color: white;
-            border-color: var(--accent);
+            box-shadow: 
+                0 4px 20px rgba(91, 140, 255, 0.3),
+                0 0 60px rgba(91, 140, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .btn-primary:hover {
-            background-color: var(--accent-hover);
-            border-color: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(66, 114, 245, 0.3);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 12px 40px rgba(91, 140, 255, 0.5),
+                0 0 80px rgba(91, 140, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px) scale(1);
         }
 
         .btn-secondary {
-            background-color: transparent;
+            background: var(--glass-bg);
             color: var(--text-primary);
-            border: 1px solid var(--border);
-            margin-left: 1.5rem;
+            border: 1px solid var(--border-subtle);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
 
         .btn-secondary:hover {
-            background-color: rgba(66, 114, 245, 0.1);
-            border-color: var(--accent);
-            transform: translateY(-2px);
+            background: rgba(26, 26, 40, 0.6);
+            border-color: var(--border-glow);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 8px 30px rgba(91, 140, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
-        section { padding: 8rem 0; }
+        section { 
+            padding: 8rem 0; 
+            position: relative;
+            z-index: 2;
+        }
 
         .section-title {
-            font-size: 3rem;
+            font-size: 3.25rem;
             text-align: center;
             margin-bottom: 5rem;
             font-weight: 700;
-            background: linear-gradient(to right, #ffffff, #a0a0ff);
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #ffffff 0%, #b8c5ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
+            position: relative;
         }
 
-        .features { background-color: var(--bg-secondary); }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+            border-radius: 2px;
+        }
+
+        .features { 
+            background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-surface) 50%, var(--bg-deep) 100%);
+        }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         .feature-card {
             background: var(--glass-bg);
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            padding: 2.5rem;
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
             text-align: center;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .feature-card:nth-child(1) { animation-delay: 0.2s; }
-        .feature-card:nth-child(2) { animation-delay: 0.4s; }
-        .feature-card:nth-child(3) { animation-delay: 0.6s; }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(91, 140, 255, 0.1), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(66, 114, 245, 0.4);
-            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--border-glow);
+            background: rgba(26, 26, 40, 0.6);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.4),
+                0 0 80px rgba(91, 140, 255, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .feature-icon {
-            font-size: 3rem;
-            color: var(--accent);
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--accent-bright), var(--accent-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1.5rem;
+            filter: drop-shadow(0 4px 20px rgba(91, 140, 255, 0.4));
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) translateY(-5px);
         }
 
         .feature-card h3 {
-            font-size: 1.6rem;
+            font-size: 1.65rem;
             margin-bottom: 1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
 
         .feature-card p {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
-
-        .screenshots { background-color: var(--bg-primary); }
 
         .screenshots-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 2.5rem;
+            gap: 3rem;
             margin-top: 3rem;
         }
 
         .screenshot-card {
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             background: var(--glass-bg);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            position: relative;
         }
 
-        .screenshot-card:nth-child(1) { animation-delay: 0.2s; }
-        .screenshot-card:nth-child(2) { animation-delay: 0.4s; }
+        .screenshot-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(91, 140, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .screenshot-card:hover::after {
+            opacity: 1;
+        }
 
         .screenshot-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(66, 114, 245, 0.4);
+            transform: translateY(-10px) scale(1.01);
+            border-color: var(--border-glow);
+            box-shadow: 
+                0 25px 70px rgba(0, 0, 0, 0.5),
+                0 0 100px rgba(91, 140, 255, 0.2);
         }
 
         .screenshot-card img {
@@ -342,62 +520,95 @@
             height: 350px;
             object-fit: cover;
             display: block;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .screenshot-card:hover img {
+            transform: scale(1.05);
         }
 
         .screenshot-caption {
-            padding: 1.5rem;
+            padding: 2rem;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .screenshot-caption h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 0.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
 
         .screenshot-caption p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         .download {
             text-align: center;
-            background-color: var(--bg-secondary);
+            background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-surface) 100%);
         }
 
         .download-btn-large {
             display: inline-flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1.8rem 4rem;
-            font-size: 1.4rem;
-            border-radius: 0.75rem;
-            background-color: var(--accent);
+            gap: 1.25rem;
+            padding: 2rem 4.5rem;
+            font-size: 1.5rem;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--accent-glow), var(--accent-primary));
             color: white;
-            border: 1px solid var(--accent);
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.3s ease;
+            letter-spacing: -0.02em;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 8px 40px rgba(91, 140, 255, 0.4),
+                0 0 80px rgba(91, 140, 255, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .download-btn-large::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
             opacity: 0;
-            animation: fadeInUp 1s ease 0.4s forwards;
+            transition: opacity 0.4s ease;
+        }
+
+        .download-btn-large:hover::before {
+            opacity: 1;
         }
 
         .download-btn-large:hover {
-            background-color: var(--accent-hover);
-            border-color: var(--accent-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(66, 114, 245, 0.4);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 
+                0 20px 60px rgba(91, 140, 255, 0.6),
+                0 0 120px rgba(91, 140, 255, 0.3),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
         }
 
-        .download-btn-large i { font-size: 1.6rem; }
+        .download-btn-large:active {
+            transform: translateY(-2px) scale(1.01);
+        }
 
-        .download p {
+        .download-btn-large i { 
+            font-size: 1.75rem; 
+            filter: drop-shadow(0 2px 10px rgba(255, 255, 255, 0.3));
+        }
+
+        .download > .container > p {
             margin-bottom: 3rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-secondary);
         }
 
         .about {
-            background-color: var(--bg-primary);
             text-align: center;
         }
 
@@ -406,72 +617,134 @@
             margin: 0 auto;
             font-size: 1.2rem;
             color: var(--text-secondary);
+            line-height: 1.8;
         }
 
         footer {
             padding: 4rem 0;
             text-align: center;
-            border-top: 1px solid var(--border);
-            color: var(--text-secondary);
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-muted);
             font-size: 0.95rem;
+            position: relative;
+            z-index: 2;
         }
 
         footer a {
-            color: var(--accent);
+            color: var(--accent-primary);
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
+            position: relative;
         }
 
-        footer a:hover { color: var(--accent-hover); }
+        footer a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        footer a:hover::after {
+            width: 100%;
+        }
+
+        footer a:hover { 
+            color: var(--accent-bright);
+        }
 
         footer .separator {
-            color: var(--text-secondary);
+            color: var(--text-muted);
             margin: 0 0.8rem;
+            opacity: 0.5;
         }
 
         @media (max-width: 768px) {
-            .hero p { font-size: 1.3rem; }
-            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.4rem; }
             .section-title { font-size: 2.5rem; }
-            .btn-secondary {
-                margin-left: 0;
-                margin-top: 1.5rem;
-                display: block;
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
             }
+            .btn-secondary { margin-left: 0; }
             .hero-logo { max-width: 380px; }
-            .screenshots-grid { grid-template-columns: 1fr; }
+            .screenshots-grid { 
+                grid-template-columns: 1fr; 
+                gap: 2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .download-btn-large {
+                padding: 1.75rem 3rem;
+                font-size: 1.25rem;
+            }
+            :root {
+                --spotlight-size: 400px;
+            }
+        }
+
+        /* Smooth reveal on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
+
+    <!-- Ambient Background -->
+    <div class="ambient-bg">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+    </div>
+
+    <!-- Mouse Tracking Spotlight -->
+    <div class="spotlight"></div>
 
     <section class="hero">
         <div class="container hero-content">
             <img src="img/logo.png" alt="HyLauncher Logo - Free Offline Hytale Launcher" class="hero-logo">
             <p>Free Hytale launcher — play anytime, without an account.</p>
             <div class="hero-buttons">
-                <a href="#download" class="btn btn-primary">Download Free for <i class="fab fa-windows" aria-hidden="true"></i> Windows </a>
-                <a href="https://l.hylauncher.net/discord" target="_blank" class="btn btn-secondary" disabled="true">Join <i class="fab fa-discord" aria-hidden="true"></i> Discord</a>
+                <a href="#download" class="btn btn-primary">
+                    <i class="fab fa-windows" aria-hidden="true"></i>
+                    Download Free for Windows
+                </a>
+                <a href="https://l.hylauncher.net/discord" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-discord" aria-hidden="true"></i>
+                    Join Discord
+                </a>
             </div>
         </div>
     </section>
 
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Key Features of HyLauncher</h2>
+            <h2 class="section-title reveal">Key Features of HyLauncher</h2>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <i class="fa-solid fa-power-off feature-icon" aria-hidden="true"></i>
                     <h3>Fully Offline Mode</h3>
                     <p>No account or internet connection required — launch, install and play Hytale instantly.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <i class="fas fa-bolt feature-icon" aria-hidden="true"></i>
                     <h3>Lightweight & Fast</h3>
                     <p>Minimal resource usage for quick startup and smooth performance on any Windows PC.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <i class="fas fa-palette feature-icon" aria-hidden="true"></i>
                     <h3>Simple Modern Interface</h3>
                     <p>Clean design that feels exactly like the official Hytale launcher experience.</p>
@@ -482,20 +755,20 @@
 
     <section class="screenshots">
         <div class="container">
-            <h2 class="section-title">HyLauncher Screenshots</h2>
+            <h2 class="section-title reveal">HyLauncher Screenshots</h2>
             <div class="screenshots-grid">
-                <div class="screenshot-card">
+                <div class="screenshot-card reveal">
                     <img src="img/showcase1.jpg" alt="HyLauncher main interface - clean offline Hytale launcher">
                     <div class="screenshot-caption">
                         <h3>Main Interface</h3>
                         <p>Clean and intuitive launcher interface</p>
                     </div>
                 </div>
-                <div class="screenshot-card">
+                <div class="screenshot-card reveal">
                     <img src="img/showcase2.jpg" alt="HyLauncher game installation screen - offline Hytale setup">
                     <div class="screenshot-caption">
-                        <h3>Game Installation</h3>
-                        <p>Online game install and updates</p>
+                        <h3>Settings page</h3>
+                        <p>Various options to suit each user's needs</p>
                     </div>
                 </div>
             </div>
@@ -504,13 +777,14 @@
 
     <section class="download" id="download">
         <div class="container">
-            <h2 class="section-title">Download HyLauncher</h2>
-            <p>Free Hytale launcher for Windows. No account needed.</p>
-            <a href="https://l.hylauncher.net/download" target="_blank" class="download-btn-large">
+            <h2 class="section-title reveal">Download HyLauncher</h2>
+            <p class="reveal">Free Hytale launcher for Windows. No account needed.</p>
+            <a href="https://l.hylauncher.net/download" target="_blank" class="download-btn-large reveal">
                 <i class="fab fa-windows" aria-hidden="true"></i>
                 Free Download for Windows
-            </a><br><br><br>
-            <a href="https://l.hylauncher.net/discord" target="_blank" class="btn btn-secondary">
+            </a>
+            <br><br><br>
+            <a href="https://l.hylauncher.net/discord" target="_blank" class="btn btn-secondary reveal">
                 <i class="fab fa-discord" aria-hidden="true"></i>
                 Join our community
             </a>
@@ -519,8 +793,8 @@
 
     <section class="about">
         <div class="container">
-            <h2 class="section-title">About HyLauncher</h2>
-            <p>HyLauncher is a community-developed free launcher for Hytale on Windows. It provides the familiar launcher experience without requiring an online account or internet connection. Ideal for offline play, testing mods, or quick launches when the official servers are unavailable.</p>
+            <h2 class="section-title reveal">About HyLauncher</h2>
+            <p class="reveal">HyLauncher is a community-developed free launcher for Hytale on Windows. It provides the familiar launcher experience without requiring an online account or internet connection. Ideal for offline play, testing mods, or quick launches when the official servers are unavailable.</p>
         </div>
     </section>
 
@@ -529,35 +803,84 @@
             © 2026 HyLauncher. All rights reserved.<br>
             <a href="https://l.hylauncher.net/discord" target="_blank">Discord</a>
             <span class="separator">•</span>
-            <a href="#" target="_blank">Disclaimer</a>
+            <a href="disclaimer.html">Disclaimer</a>
             <span class="separator">•</span>
-            <a href="#" target="_blank">Privacy Policy</a>
+            <a href="privacy.html">Privacy Policy</a>
             <br><br>
             HyLauncher is in no way affiliated with Hypixel Studios, nor should it be considered an official or endorsed project.
         </div>
     </footer>
 
-</body>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            const targetId = this.getAttribute("href");
+    <script>
+        // Mouse Tracking Spotlight
+        const spotlight = document.querySelector('.spotlight');
+        let mouseX = 0, mouseY = 0;
+        let spotlightX = 0, spotlightY = 0;
 
-            // Ignora apenas "#" sem destino
-            if (targetId === "#") return;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
 
-            const target = document.querySelector(targetId);
-            if (!target) return;
+        function animateSpotlight() {
+            const dx = mouseX - spotlightX;
+            const dy = mouseY - spotlightY;
+            
+            spotlightX += dx * 0.15;
+            spotlightY += dy * 0.15;
+            
+            spotlight.style.left = spotlightX - 300 + 'px';
+            spotlight.style.top = spotlightY - 300 + 'px';
+            
+            requestAnimationFrame(animateSpotlight);
+        }
+        animateSpotlight();
 
-            e.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
+        // Feature Card Mouse Tracking
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', x + '%');
+                card.style.setProperty('--mouse-y', y + '%');
             });
         });
-    });
-});
-</script>
+
+        // Smooth Scroll
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener("click", function (e) {
+                    const targetId = this.getAttribute("href");
+                    if (targetId === "#") return;
+                    const target = document.querySelector(targetId);
+                    if (!target) return;
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                });
+            });
+
+            // Scroll Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                revealElements.forEach(el => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    const revealPoint = 100;
+                    
+                    if (elementTop < windowHeight - revealPoint) {
+                        el.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Initial check
+        });
+    </script>
+</body>
 </html>
