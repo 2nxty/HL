@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download - HyLauncher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="shortcut icon" href="img/licon.ico">
+    <link rel="icon" type="image/x-icon" href="/img/licon.ico">
+    <link rel="apple-touch-icon" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <style>
+        :root {
+            --bg-deep: #0a0a12;
+            --bg-surface: #12121d;
+            --accent-primary: #5b8cff;
+            --accent-glow: #4272f5;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1b5;
+            --text-muted: #6b6b7f;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-glow: rgba(91, 140, 255, 0.3);
+            --success: #4ade80;
+            --warning: #eab308;
+            --code-bg: rgba(26, 26, 40, 0.6);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .ambient-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .gradient-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.12;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #4272f5, transparent);
+            top: -200px;
+            right: -100px;
+        }
+
+        .blob-2 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #2d5fd9, transparent);
+            bottom: -150px;
+            left: -100px;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .logo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .logo-link i {
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+        }
+
+        .logo-link:hover {
+            color: var(--accent-primary);
+            transform: translateX(-5px);
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #ffffff 0%, #b8c5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.25rem;
+        }
+
+        ul, ol {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-left: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+
+        a:hover {
+            color: #7aa3ff;
+        }
+
+        .agreement-box {
+            background: var(--code-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            max-height: 300px;
+            overflow-y: auto;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            max-height: 15rem;
+        }
+
+        .agreement-box::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .agreement-box::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .agreement-box::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 4px;
+        }
+
+        .agreement-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .agreement-box p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-container:hover {
+            background: rgba(91, 140, 255, 0.05);
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            accent-color: var(--accent-primary);
+            flex-shrink: 0;
+        }
+
+        .checkbox-label {
+            color: var(--text-primary);
+            font-size: 1rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .download-btn-large {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+            padding: 1.75rem 3rem;
+            font-size: 1.4rem;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent-glow), var(--accent-primary));
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(91, 140, 255, 0.4);
+        }
+
+        .download-btn-large:not(:disabled):hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(91, 140, 255, 0.6);
+        }
+
+        .download-btn-large:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: linear-gradient(135deg, #3a3a4a, #2a2a3a);
+            box-shadow: none;
+        }
+
+        .download-btn-large i {
+            font-size: 1.6rem;
+        }
+
+        .info-box {
+            background: rgba(91, 140, 255, 0.05);
+            border-left: 3px solid var(--accent-primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .info-box p {
+            margin-bottom: 0.75rem;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .warning-box {
+            background: rgba(234, 179, 8, 0.05);
+            border-left: 3px solid var(--warning);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .warning-box h3 {
+            color: var(--warning);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .warning-box p {
+            margin-bottom: 0.75rem;
+        }
+
+        .warning-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .success-box {
+            background: rgba(74, 222, 128, 0.05);
+            border-left: 3px solid var(--success);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .success-box h3 {
+            color: var(--success);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .step-list {
+            list-style: none;
+            margin-left: 0;
+            counter-reset: step-counter;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: linear-gradient(135deg, var(--accent-glow), var(--accent-primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .green {
+            color: var(--success);
+        }
+
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: var(--accent-primary);
+            font-weight: 500;
+        }
+
+        footer .separator {
+            margin: 0 0.8rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.25rem; }
+            h2 { font-size: 1.5rem; }
+            main { padding: 3rem 0; }
+            .download-btn-large {
+                font-size: 1.2rem;
+                padding: 1.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <a href="index.html" class="logo-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to HyLauncher
+            </a>
+        </header>
+
+        <main>
+            <h1>Download HyLauncher</h1>
+            <!--p class="subtitle">Free offline Hytale launcher for Windows. Read and accept the terms below to download.</p-->
+
+            <div class="content-section">
+                <h2>User Agreement</h2>
+                <div class="agreement-box">
+                    <h3>Terms of Use - Summary</h3>
+                    <p><strong>No Official Affiliation:</strong> HyLauncher is not affiliated with, endorsed by, or connected to Hypixel Studios. This is an independent community project.</p>
+                    
+                    <p><strong>Use at Your Own Risk:</strong> You use this software entirely at your own risk. The developers are not responsible for any damage to your computer, loss of data, or any other harm that may occur.</p>
+                    
+                    <p><strong>No Warranty:</strong> HyLauncher is provided "as is" without any guarantees regarding functionality, performance, compatibility, or security.</p>
+                    
+                    <p><strong>Intellectual Property:</strong> Hytale and related trademarks are property of Hypixel Studios. We make no claim to these rights.</p>
+                    
+                    <p><strong>Your Responsibility:</strong> By downloading and using HyLauncher, you acknowledge that you understand this is unofficial software and accept all associated risks.</p>
+                    
+                    <p>For the complete terms, please read our full <a href="disclaimer.html" target="_blank" style="color: var(--accent-primary);">Disclaimer</a>.</p>
+                </div>
+
+                <label class="checkbox-container">
+                    <input type="checkbox" id="agreement-checkbox">
+                    <span class="checkbox-label">I have read and agree to the terms above.</span>
+                </label>
+
+                <button class="download-btn-large" id="download-btn" disabled>
+                    <i class="fab fa-windows"></i>
+                    Download for Windows
+                </button>
+            </div>
+
+            <div class="content-section">
+                <div class="success-box">
+                    <h3><i class="fas fa-rocket"></i> How to Use HyLauncher</h3>
+                    <ol class="step-list">
+                        <li><strong>Download the file</strong> using the button above</li>
+                        <li><strong>Extract the .zip</strong> to a folder of your choice</li>
+                        <li><strong>Run the .exe file</strong> to open HyLauncher</li>
+                        <li><strong>Install the game</strong> when prompted (first-time setup)</li>
+                        <li><strong>Click "Play"</strong> to launch Hytale</li>
+                    </ol>
+                    <p>That's it! No account needed, enjoy playing Hytale anytime.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="warning-box">
+                    <h3><i class="fas fa-shield-alt"></i> About Antivirus False Positives</h3>
+                    <p><strong>Why does VirusTotal show detections?</strong></p>
+                    <p>HyLauncher is not digitally signed with a Microsoft certificate (which costs hundreds of dollars annually). Because of this, some antivirus engines flag it as potentially unwanted software, resulting in approximately 2 false positives on <a target="_blank" href="https://www.virustotal.com/gui/file/97ce0d6d3834f6c7ac607093f175e316e70b719bef8eb58feb9424197d753a72">VirusTotal</a>.</p>
+                    <p><strong>Windows SmartScreen warning?</strong></p>
+                    <p>Windows may show a "Windows protected your PC" message saying the app is from an unknown publisher. This is normal for unsigned software. Simply click <strong>"More info"</strong> and then <strong>"Run anyway"</strong> to proceed.</p>
+                    <p><strong>Is it safe?</strong> <b class="green">Yes.</b> The majority of antivirus engines recognize HyLauncher as clean. The false positives are due to the lack of code signing, not actual malware.</p>
+                    <p>If you're concerned, you can always scan the downloaded file yourself or run it in a sandboxed environment first.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="info-box">
+                    <p><strong>Need help?</strong> Join our Discord community for support, updates, and to connect with other players.</p>
+                    <p><a href="https://l.hylauncher.net/discord" target="_blank" style="color: var(--accent-primary); font-weight: 600;">Join Discord Community →</a></p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            © 2026 HyLauncher. All rights reserved.<br>
+            <a href="index.html">Home</a>
+            <span class="separator">•</span>
+            <a href="setupserver.html">Server Setup</a>
+            <span class="separator">•</span>
+            <a href="disclaimer.html">Disclaimer</a>
+            <span class="separator">•</span>
+            <a href="privacy.html">Privacy Policy</a>
+        </footer>
+    </div>
+
+    <script>
+        const checkbox = document.getElementById('agreement-checkbox');
+        const downloadBtn = document.getElementById('download-btn');
+
+        checkbox.addEventListener('change', function() {
+            downloadBtn.disabled = !this.checked;
+            
+            if (this.checked) {
+                downloadBtn.style.background = 'linear-gradient(135deg, var(--accent-glow), var(--accent-primary))';
+            }
+        });
+
+        downloadBtn.addEventListener('click', function() {
+            if (!this.disabled) {
+                window.location.href = 'https://l.hylauncher.net/download';
+            }
+        });
+    </script>
+</body>
+</html>
