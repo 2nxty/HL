@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Updates - HyLauncher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="shortcut icon" href="img/licon.ico">
+    <link rel="icon" type="image/x-icon" href="/img/licon.ico">
+    <link rel="apple-touch-icon" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <style>
+        :root {
+            --bg-deep: #0a0a12;
+            --bg-surface: #12121d;
+            --accent-primary: #5b8cff;
+            --accent-glow: #4272f5;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1b5;
+            --text-muted: #6b6b7f;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-glow: rgba(91, 140, 255, 0.3);
+            --glass-bg: rgba(26, 26, 40, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .ambient-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .gradient-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.12;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #4272f5, transparent);
+            top: -200px;
+            right: -100px;
+        }
+
+        .blob-2 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #2d5fd9, transparent);
+            bottom: -150px;
+            left: -100px;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .logo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .logo-link i {
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+        }
+
+        .logo-link:hover {
+            color: var(--accent-primary);
+            transform: translateX(-5px);
+        }
+
+        main {
+            padding: 5rem 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #b8c5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .loading i {
+            font-size: 3rem;
+            color: var(--accent-primary);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .loading p {
+            margin-top: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .error-message i {
+            font-size: 2.5rem;
+            color: #ef4444;
+            margin-bottom: 1rem;
+        }
+
+        .error-message p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .blog-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+        .blog-card:nth-child(4) { animation-delay: 0.4s; }
+        .blog-card:nth-child(5) { animation-delay: 0.5s; }
+        .blog-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .blog-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(91, 140, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .blog-card:hover::after {
+            opacity: 1;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-glow);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.4),
+                0 0 80px rgba(91, 140, 255, 0.15);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .blog-card:hover .blog-image {
+            transform: scale(1.05);
+        }
+
+        .blog-image-container {
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .blog-image-placeholder {
+            width: 100%;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(91, 140, 255, 0.1), rgba(66, 114, 245, 0.05));
+        }
+
+        .blog-image-placeholder i {
+            font-size: 3rem;
+            color: var(--accent-primary);
+            opacity: 0.3;
+        }
+
+        .blog-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .blog-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .blog-card:hover .blog-title {
+            color: var(--accent-primary);
+        }
+
+        .blog-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .blog-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .blog-link:hover {
+            color: var(--accent-bright);
+        }
+
+        .blog-link:hover i {
+            transform: translateX(5px);
+        }
+
+        .no-articles {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .no-articles i {
+            font-size: 4rem;
+            color: var(--text-muted);
+            opacity: 0.3;
+            margin-bottom: 1.5rem;
+        }
+
+        .no-articles p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #7aa3ff;
+        }
+
+        footer .separator {
+            margin: 0 0.8rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.25rem; }
+            main { padding: 3rem 0; }
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <a href="index.html" class="logo-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to HyLauncher
+            </a>
+        </header>
+
+        <main>
+            <h1>News & Updates</h1>
+            <p class="subtitle">Stay up to date with the latest Hytale news and announcements</p>
+
+            <div id="loading" class="loading">
+                <i class="fas fa-spinner"></i>
+                <p>Loading latest news...</p>
+            </div>
+
+            <div id="error" class="error-message" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Failed to load articles. Please try again later.</p>
+            </div>
+
+            <div id="blog-container" class="blog-grid"></div>
+
+            <div id="no-articles" class="no-articles" style="display: none;">
+                <i class="fas fa-newspaper"></i>
+                <p>No articles available at the moment.</p>
+            </div>
+        </main>
+
+        <footer>
+            © 2026 HyLauncher. All rights reserved.<br>
+            <a href="index.html">Home</a>
+            <span class="separator">•</span>
+            <a href="server-setup.html">Server Setup</a>
+            <span class="separator">•</span>
+            <a href="disclaimer.html">Disclaimer</a>
+            <span class="separator">•</span>
+            <a href="privacy.html">Privacy Policy</a>
+        </footer>
+    </div>
+
+    <script>
+        const FEED_URL = 'https://launcher.hytale.com/launcher-feed/release/feed.json';
+        const IMAGE_BASE_URL = 'https://launcher.hytale.com/launcher-feed/release/';
+
+        async function loadBlogFeed() {
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            const blogContainer = document.getElementById('blog-container');
+            const noArticles = document.getElementById('no-articles');
+
+            try {
+                const response = await fetch(FEED_URL);
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch feed');
+                }
+
+                const data = await response.json();
+                const articles = data.articles || [];
+
+                loading.style.display = 'none';
+
+                if (articles.length === 0) {
+                    noArticles.style.display = 'block';
+                    return;
+                }
+
+                articles.forEach((article, index) => {
+                    const card = createBlogCard(article, index);
+                    blogContainer.appendChild(card);
+                });
+
+            } catch (err) {
+                console.error('Error loading blog feed:', err);
+                loading.style.display = 'none';
+                error.style.display = 'block';
+            }
+        }
+
+        function createBlogCard(article, index) {
+            const card = document.createElement('div');
+            card.className = 'blog-card';
+            
+            // Construct full image URL
+            const imageUrl = article.image_url 
+                ? IMAGE_BASE_URL + article.image_url 
+                : null;
+
+            // Create image element with error handling
+            const imageHTML = imageUrl 
+                ? `<div class="blog-image-container">
+                     <img src="${imageUrl}" 
+                          alt="${article.title}" 
+                          class="blog-image"
+                          onerror="this.parentElement.innerHTML='<div class=\\'blog-image-placeholder\\'><i class=\\'fas fa-image\\'></i></div>'">
+                   </div>`
+                : `<div class="blog-image-placeholder">
+                     <i class="fas fa-image"></i>
+                   </div>`;
+
+            card.innerHTML = `
+                ${imageHTML}
+                <div class="blog-content">
+                    <h3 class="blog-title">${article.title}</h3>
+                    <p class="blog-description">${article.description}</p>
+                    <a href="${article.dest_url}" target="_blank" class="blog-link">
+                        Read more
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Load blog feed when page loads
+        document.addEventListener('DOMContentLoaded', loadBlogFeed);
+    </script>
+</body>
+</html>
