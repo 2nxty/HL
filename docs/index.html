@@ -227,6 +227,7 @@
         }
 
         .update-banner {
+            display: none;
             position: fixed;
             top: 20px;
             left: 50%;
@@ -239,7 +240,7 @@
             border-radius: 12px;
             padding: 0.75rem 1.5rem;
             font-size: 0.95rem;
-            color: var(--text-secondary);
+            color: var(--text-primary);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -850,11 +851,10 @@
     </style>
 </head>
 <body>
-    <!-- Update Banner 
-    <a href="#" class="update-banner">
-        <i class="fas fa-arrow-right"></i>
-        What's new in v0.1.0 →
-    </a-->
+    <!-- Update Banner  -->
+    <div class="update-banner">
+        <i class="fa-solid fa-circle-info"></i>
+    </div>
 
     <!-- Ambient Background -->
     <div class="ambient-bg">
