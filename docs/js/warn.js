@@ -8,15 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const MOSTRAR_BANNER = true;
     
-    const TEXTO_BANNER   = "HyLauncher is back online! Please update your version to continue enjoying it.";
+    const TEXTO_BANNER   = "Due to recent events, HyLauncher is currently inoperative.";
     
     const COR_BORDA_VERMELHA = '#ef4444';
     const COR_BORDA_AMARELA  = '#f59e0b';
     const COR_BORDA_VERDE    = '#10b981';
     
-    const COR_BORDA      = COR_BORDA_VERDE;   // ← escolha aqui
+    const COR_BORDA      = COR_BORDA_VERMELHA;   // ← escolha aqui
     
-    const LINK_URL       = '#download';   // "" = sem link   ou   "https://exemplo.com"
+    const LINK_URL       = '';   // "" = sem link   ou   "https://exemplo.com"
     
     // ────────────────────────────────────────────────
 
@@ -72,4 +72,5 @@ document.addEventListener('DOMContentLoaded', function() {
     banner.style.display = 'flex';
 
     console.log('[UpdateBanner] Banner ativado com texto:', TEXTO_BANNER);
+
 });
