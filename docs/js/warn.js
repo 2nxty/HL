@@ -1,4 +1,4 @@
-// HyLauncher is back online! Please update your version to continue enjoying it. 
+// HyLauncher is back online! Please update your version to continue enjoying it. Hylauncher is back online and fully operational, please update your version!
 // Due to recent events, HyLauncher is currently inoperative.
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const MOSTRAR_BANNER = true;
     
-    const TEXTO_BANNER   = "Please update your version to continue enjoying it.";
+    const TEXTO_BANNER   = "Hylauncher is back online and fully operational, please update your version!";
     
     const COR_BORDA_VERMELHA = '#ef4444';
     const COR_BORDA_AMARELA  = '#f59e0b';
@@ -75,4 +75,5 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('[UpdateBanner] Banner ativado com texto:', TEXTO_BANNER);
 
 });
+
 
